@@ -133,3 +133,6 @@ dmypy.json
 
 docs/
 ppmfiles/
+tmp/
+sheet/
+db/
