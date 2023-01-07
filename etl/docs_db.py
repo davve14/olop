@@ -1,5 +1,6 @@
 from tinydb import TinyDB, Query
 
+
 class Db:
     def __init__(self, path):
         self.path = path

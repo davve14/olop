@@ -1,4 +1,4 @@
-from etl import etl, db
+from etl import etl, docs_db
 
 
 def run_code():
@@ -15,7 +15,7 @@ def run_code():
     # for token in doc:
     #     print(token.text, token.pos_, token.dep_)
 
-    database = db.Db('db/db.json')
+    #database = db.Db('db/db.json')
     # database.insert_document({'url': '', 'document': ''})
 
 

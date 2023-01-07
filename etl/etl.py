@@ -9,7 +9,7 @@ import logging
 import csv
 import validators
 import pandas as pd
-from etl import db
+from . import docs_db
 from pdf2image import convert_from_path
 
 try:
@@ -18,7 +18,7 @@ except ImportError:
     import Image
 import pytesseract
 
-database = db.Db('db/db.json')
+database = docs_db.Db('db/db.json')
 
 class DataIngestor:
 
