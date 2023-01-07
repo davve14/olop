@@ -28,11 +28,11 @@ def run_code():
     #etl.download_docs("docs", etl.build_download_list("sheet/docs.csv"))
     #etl.build_download_list("docs/docs.csv")
 
-    #data_ingestor = etl.DataIngestor()
-    #data_ingestor.download_docs_sheet()
-    #data_ingestor.download_docs()
-    data_transformer = etl.DataTransformer()
-    data_transformer.convert_ppm_to_text()
+    data_ingestor = etl.DataIngestor()
+    data_ingestor.download_docs_sheet()
+    data_ingestor.download_docs()
+    #data_transformer = etl.DataTransformer()
+    #data_transformer.convert_ppm_to_text()
 
 
 if __name__ == '__main__':
