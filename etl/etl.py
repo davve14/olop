@@ -9,8 +9,9 @@ import logging
 import csv
 import validators
 import pandas as pd
-from db import db
-from pdf2image import convert_from_path, convert_from_bytes
+from etl import db
+from pdf2image import convert_from_path
+
 try:
     from PIL import Image
 except ImportError:

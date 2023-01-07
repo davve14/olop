@@ -1,8 +1,4 @@
-import spacy
-from spacy.lang.sv.examples import sentences
-from etl import etl
-import os.path
-from db import db
+from etl import etl, db
 
 
 def run_code():
