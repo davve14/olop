@@ -125,6 +125,7 @@ class DataTransformer:
             os.mkdir(self.ppm_folder)
         pdfs = glob.glob(self.input_folder + "/*.pdf")
         for pdf in pdfs:
+            print('Converting pdf' + pdf)
             with tempfile.TemporaryDirectory("", "tmp", "./tmp") as temp_path:
                 pages = convert_from_path(pdf, dpi=300, thread_count=4, output_folder=temp_path)
                 for page in pages:
