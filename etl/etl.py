@@ -116,6 +116,7 @@ class DataTransformer:
         self.input_folder = etl_config['DATA_TRANSFORM']['input_folder']
         self.ppm_folder = etl_config['DATA_TRANSFORM']['ppm_folder']
         self.text_folder = etl_config['DATA_TRANSFORM']['text_folder']
+        self.final_folder = etl_config['DATA_TRANSFORM']['final_folder']
 
     def convert_pdf_to_ppm(self):
         if not os.path.exists("tmp"):
@@ -133,6 +134,26 @@ class DataTransformer:
         ppms = glob.glob(self.ppm_folder + "/*.ppm")
         for ppm in ppms:
             ppm_to_string(ppm, self.text_folder)
+
+    def merge_files(self):
+        print("Merging files...")
+        final_folder = self.final_folder
+        input_folder = self.text_folder
+        txt_files = glob.glob(input_folder + "/*.txt")
+        print(txt_files)
+        print(final_folder, input_folder)
+
+        for txt in txt_files:
+            page_start = txt.find("-page")
+            print(page_start)
+            filepart = txt[:page_start]
+            f = open(txt, "r")
+            current_object = f.read()
+            f.close()
+            filename = get_file_base(filepart)
+            final_file = open(final_folder + "/" + filename + ".txt", "a")
+            final_file.write(current_object)
+            final_file.close()
 
 
 #Utils
@@ -157,4 +178,3 @@ def create_download_link(url):
     doc_id = url2[:url[url1 + 7:].find("/")]
     print(url_prefix + doc_id + url_suffix)
     return {'url': url_prefix + doc_id + url_suffix, 'id': doc_id}
-

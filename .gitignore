@@ -135,4 +135,7 @@ docs/
 ppmfiles/
 tmp/
 sheet/
-db/
+docs_dev/
+ppmfiles_dev/
+txtfiles_dev/
+txtfiles/
